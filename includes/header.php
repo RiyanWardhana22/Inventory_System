@@ -1,4 +1,11 @@
 <?php
+function base_url($path = '')
+{
+            $protocol = (!empty($_SERVER['HTTPS'])) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'];
+            $project_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', str_replace('\\', '/', realpath(dirname(__FILE__) . '/..')));
+            return $protocol . '://' . $host . $project_path . '/' . ltrim($path, '/');
+}
 $title = isset($title) ? $title : 'Silmarils Cookies Dessert';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/functions.php';

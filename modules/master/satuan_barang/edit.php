@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($stmt->execute()) {
                         $_SESSION['success'] = 'Satuan barang berhasil diperbarui';
-                        header('Location: index.php');
+                        header('Location: ./index.php');
                         exit;
             } else {
                         $_SESSION['error'] = 'Satuan barang gagal diperbarui';

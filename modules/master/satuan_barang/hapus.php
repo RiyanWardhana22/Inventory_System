@@ -17,7 +17,7 @@ $row = $result->fetch_assoc();
 
 if ($row['total'] > 0) {
             $_SESSION['error'] = 'Satuan tidak dapat dihapus karena masih digunakan di data barang';
-            header('Location: index.php');
+            header('Location: ./index.php');
             exit;
 }
 
@@ -30,5 +30,5 @@ if ($stmt->execute()) {
             $_SESSION['error'] = 'Satuan barang gagal dihapus';
 }
 
-header('Location: index.php');
+header('Location: ./index.php');
 exit;

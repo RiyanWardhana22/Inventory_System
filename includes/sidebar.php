@@ -10,7 +10,8 @@ if (!isset($user)) {
             <div class="sidebar-nav">
                         <ul class="nav flex-column">
                                     <li class="nav-item">
-                                                <a class="nav-link <?php echo $active_menu == 'dashboard' ? 'active' : ''; ?>" href="../index.php">
+                                                <a class="nav-link <?= $active_menu == 'dashboard' ? 'active' : '' ?>"
+                                                            href="<?= base_url('index.php') ?>">
                                                             <i class="bi bi-speedometer2"></i>
                                                             <span>Dashboard</span>
                                                 </a>

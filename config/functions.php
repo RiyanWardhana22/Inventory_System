@@ -39,11 +39,3 @@ function formatTanggal($date)
 {
             return date('d F Y', strtotime($date));
 }
-
-function base_url($path = '')
-{
-            $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-            $host = $_SERVER['HTTP_HOST'];
-            $project_path = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
-            return $protocol . '://' . $host . $project_path . ltrim($path, '/');
-}
