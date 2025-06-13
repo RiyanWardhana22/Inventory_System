@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ . '/../../../includes/header.php';
 
-$title = 'Jenis Barang';
+$title = 'Satuan Barang';
 $active_menu = 'master';
-$active_submenu = 'jenis_barang';
+$active_submenu = 'satuan_barang';
 ?>
 
 <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Jenis Barang</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Data Satuan Barang</h6>
                         <a href="tambah.php" class="btn btn-primary btn-sm">
                                     <i class="bi bi-plus"></i> Tambah Data
                         </a>
@@ -18,26 +18,26 @@ $active_submenu = 'jenis_barang';
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                             <tr>
-                                                                        <th>NO</th>
-                                                                        <th>JENIS BARANG</th>
-                                                                        <th>ACTION</th>
+                                                                        <th width="5%">NO</th>
+                                                                        <th>SATUAN BARANG</th>
+                                                                        <th width="15%">AKSI</th>
                                                             </tr>
                                                 </thead>
                                                 <tbody>
                                                             <?php
-                                                            $sql = "SELECT * FROM jenis_barang ORDER BY id DESC";
+                                                            $sql = "SELECT * FROM satuan_barang ORDER BY satuan_barang ASC";
                                                             $result = $conn->query($sql);
                                                             $no = 1;
                                                             while ($row = $result->fetch_assoc()) {
                                                             ?>
                                                                         <tr>
-                                                                                    <td><?php echo $no++; ?></td>
-                                                                                    <td><?php echo $row['jenis_barang']; ?></td>
+                                                                                    <td><?= $no++; ?></td>
+                                                                                    <td><?= htmlspecialchars($row['satuan_barang']); ?></td>
                                                                                     <td>
-                                                                                                <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">
+                                                                                                <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">
                                                                                                             <i class="bi bi-pencil"></i>
                                                                                                 </a>
-                                                                                                <a href="hapus.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                                                                <a href="hapus.php?id=<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">
                                                                                                             <i class="bi bi-trash"></i>
                                                                                                 </a>
                                                                                     </td>

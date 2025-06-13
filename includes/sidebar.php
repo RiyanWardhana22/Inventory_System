@@ -5,7 +5,7 @@ if (!isset($user)) {
 ?>
 <div class="sidebar">
             <div class="sidebar-brand text-center py-3">
-                        <h4>INVENTORYWEB</h4>
+                        <h4>Silmarils Cookies Dessert</h4>
             </div>
             <div class="sidebar-nav">
                         <ul class="nav flex-column">
@@ -26,19 +26,19 @@ if (!isset($user)) {
                                                             <div class="collapse <?php echo $active_menu == 'master' ? 'show' : ''; ?>" id="masterCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="../modules/master/jenis_barang">Jenis Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="./modules/master/jenis_barang">Jenis Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'satuan_barang' ? 'active' : ''; ?>" href="../modules/master/satuan_barang">Satuan Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'satuan_barang' ? 'active' : ''; ?>" href="./modules/master/satuan_barang/">Satuan Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'merk_barang' ? 'active' : ''; ?>" href="../modules/master/merk_barang">Merk Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'merk_barang' ? 'active' : ''; ?>" href="./modules/master/merk_barang">Merk Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="../modules/master/barang">Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="./modules/master/barang">Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'customer' ? 'active' : ''; ?>" href="../modules/master/customer">Customer</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'customer' ? 'active' : ''; ?>" href="./modules/master/customer">Customer</a>
                                                                                     </li>
                                                                         </ul>
                                                             </div>

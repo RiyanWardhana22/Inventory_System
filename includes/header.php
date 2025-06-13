@@ -1,5 +1,5 @@
 <?php
-$title = isset($title) ? $title : 'INVENTORYWEB';
+$title = isset($title) ? $title : 'Silmarils Cookies Dessert';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/functions.php';
 require_once __DIR__ . '/auth.php';
@@ -11,7 +11,7 @@ require_once __DIR__ . '/auth.php';
 <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>INVENTORYWEB - <?php echo $title; ?></title>
+            <title><?php echo $title; ?> | Silmarils Cookies Dessert</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
             <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
@@ -28,7 +28,7 @@ require_once __DIR__ . '/auth.php';
                                                 <ul class="navbar-nav ms-auto">
                                                             <li class="nav-item dropdown no-arrow">
                                                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $user['name']; ?></span>
+                                                                                    <span class="mr-2 d-none d-lg-inline text-dark small"><?php echo $user['name']; ?></span>
                                                                                     <img class="img-profile rounded-circle"
                                                                                                 src="<?php echo base_url('assets/images/' . (!empty($user['photo']) ? $user['photo'] : 'default.svg')); ?>"
                                                                                                 width="40"
