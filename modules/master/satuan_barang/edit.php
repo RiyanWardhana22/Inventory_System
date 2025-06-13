@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once __DIR__ . '/../../../includes/header.php';
 
 $title = 'Edit Satuan Barang';
@@ -58,4 +59,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 require_once __DIR__ . '/../../../includes/footer.php';
-?>
+ob_end_flush();

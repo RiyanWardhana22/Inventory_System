@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once __DIR__ . '/../../../includes/header.php';
 
 $title = 'Tambah Satuan Barang';
@@ -16,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         if ($stmt->execute()) {
                                     $_SESSION['success'] = 'Satuan barang berhasil ditambahkan';
-                                    header('Location: index.php');
+                                    header("Location: index.php?success=1");
                         } else {
                                     $_SESSION['error'] = 'Satuan barang gagal ditambahkan: ' . $conn->error;
                         }
@@ -44,3 +45,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 require_once __DIR__ . '/../../../includes/footer.php';
+ob_end_flush();

@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once __DIR__ . '/../../../includes/header.php';
 
 if (!isset($_GET['id'])) {
@@ -8,7 +9,6 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-// Cek apakah satuan digunakan di tabel barang
 $check = $conn->prepare("SELECT COUNT(*) as total FROM barang WHERE satuan_barang_id = ?");
 $check->bind_param('i', $id);
 $check->execute();
@@ -17,7 +17,7 @@ $row = $result->fetch_assoc();
 
 if ($row['total'] > 0) {
             $_SESSION['error'] = 'Satuan tidak dapat dihapus karena masih digunakan di data barang';
-            header('Location: ./index.php');
+            header('Location: /modules/master/satuan_barang/index.php');
             exit;
 }
 
@@ -30,5 +30,6 @@ if ($stmt->execute()) {
             $_SESSION['error'] = 'Satuan barang gagal dihapus';
 }
 
-header('Location: ./index.php');
+header('Location: index.php');
 exit;
+ob_end_flush();
