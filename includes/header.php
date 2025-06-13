@@ -6,7 +6,7 @@ function base_url($path = '')
             $project_path = str_replace($_SERVER['DOCUMENT_ROOT'], '', str_replace('\\', '/', realpath(dirname(__FILE__) . '/..')));
             return $protocol . '://' . $host . $project_path . '/' . ltrim($path, '/');
 }
-$title = isset($title) ? $title : 'Silmarils Cookies Dessert';
+$title = isset($title) ? $title : '';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/functions.php';
 require_once __DIR__ . '/auth.php';
@@ -21,6 +21,8 @@ require_once __DIR__ . '/auth.php';
             <title><?php echo $title; ?> | Silmarils Cookies Dessert</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+            <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet">
+            <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 </head>
 

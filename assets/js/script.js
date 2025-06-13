@@ -13,19 +13,44 @@ $(document).ready(function () {
     $(".alert").alert("close");
   }, 5000);
 
-  // Initialize DataTables
-  if ($("#dataTable").length) {
-    $("#dataTable").DataTable({
-      responsive: true,
-      language: {
-        url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Indonesian.json",
-      },
-    });
-  }
-
   // Show file name on file input change
   $(".custom-file-input").on("change", function () {
     let fileName = $(this).val().split("\\").pop();
     $(this).next(".custom-file-label").addClass("selected").html(fileName);
+  });
+
+  // SweetAlert Delete Satuan_barang
+  $(document).on("click", ".delete-btn", function (e) {
+    e.preventDefault();
+    const deleteUrl = $(this).data("url");
+
+    Swal.fire({
+      title: "Yakin ingin dihapus?",
+      text: "Apakah anda yakin ingin menghapus data tersebut",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, Hapus",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = deleteUrl;
+      }
+    });
+  });
+});
+
+// DATATABLES
+$(document).ready(function () {
+  $("#dataTable").DataTable({
+    destroy: true,
+    pagingType: "full_numbers",
+    language: {
+      lengthMenu: "Show _MENU_ entries",
+      paginate: {
+        next: "Next",
+        previous: "Previous",
+      },
+    },
   });
 });
