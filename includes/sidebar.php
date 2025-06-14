@@ -80,7 +80,8 @@ if (!isset($user)) {
                                                 </li>
                                     <?php endif; ?>
 
-                                    <?php if (checkAccess('settings')): ?>
+                                    <?php
+                                    if (isset($user['role_title']) && $user['role_title'] === 'Super Admin'): ?>
                                                 <li class="nav-item">
                                                             <a class="nav-link <?php echo $active_menu == 'settings' ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#settingsCollapse">
                                                                         <i class="bi bi-gear"></i>
