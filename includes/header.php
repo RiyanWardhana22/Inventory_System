@@ -37,11 +37,20 @@ require_once __DIR__ . '/auth.php';
                                                 <ul class="navbar-nav ms-auto">
                                                             <li class="nav-item dropdown no-arrow">
                                                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                    <span class="mr-2 d-none d-lg-inline text-dark small"><?php echo $user['name']; ?></span>
+                                                                                    <div class="d-flex flex-column align-items-end">
+                                                                                                <span class="mr-2 d-none d-lg-inline text-dark small text-right"><?php echo htmlspecialchars($user['name']); ?></span>
+                                                                                                <small class="mr-2 d-none d-lg-inline text-muted text-right"><?php echo htmlspecialchars($_SESSION['roles'] ?? 'User'); ?></small>
+                                                                                    </div>
+                                                                                    <?php
+                                                                                    $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($user['photo'] ?? 'default.svg'));
+                                                                                    $fallback_image = base_url('assets/images/default.svg');
+                                                                                    ?>
                                                                                     <img class="img-profile rounded-circle"
-                                                                                                src="<?php echo base_url('assets/images/' . (!empty($user['photo']) ? $user['photo'] : 'default.svg')); ?>"
+                                                                                                src="<?= $header_photo_path ?>"
                                                                                                 width="40"
-                                                                                                onerror="this.onerror=null;this.src='<?php echo base_url('assets/images/default.png'); ?>'">
+                                                                                                height="40"
+                                                                                                style="object-fit: cover;"
+                                                                                                onerror="this.onerror=null;this.src='<?= $fallback_image ?>'">
                                                                         </a>
                                                                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                                                                     <a class="dropdown-item" href="<?php echo base_url('modules/settings/user/profile.php'); ?>">

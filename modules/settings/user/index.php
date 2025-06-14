@@ -21,7 +21,6 @@ $users = $conn->query($sql);
                                                 <thead>
                                                             <tr>
                                                                         <th>NO</th>
-                                                                        <th>FOTO</th>
                                                                         <th>NAMA LENGKAP</th>
                                                                         <th>USERNAME</th>
                                                                         <th>EMAIL</th>
@@ -34,9 +33,6 @@ $users = $conn->query($sql);
                                                             while ($user_row = $users->fetch_assoc()): ?>
                                                                         <tr>
                                                                                     <td><?php echo $no++; ?></td>
-                                                                                    <td class="text-center">
-                                                                                                <img src="../../assets/images/<?php echo $user_row['photo'] ? $user_row['photo'] : 'default.png'; ?>" width="40" class="rounded-circle">
-                                                                                    </td>
                                                                                     <td><?php echo $user_row['name']; ?></td>
                                                                                     <td><?php echo $user_row['username']; ?></td>
                                                                                     <td><?php echo $user_row['email']; ?></td>
