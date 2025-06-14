@@ -11,6 +11,42 @@ require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/functions.php';
 require_once __DIR__ . '/auth.php';
 
+if (!isset($_SESSION['user_id'])) {
+            header('Location: /login.php');
+            exit;
+}
+$user_id = $_SESSION['user_id'];
+
+$stmt = $conn->prepare("SELECT id, name, username, email, password, photo, role_id FROM users WHERE id = ?");
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user_data = $result->fetch_assoc();
+
+if (!$user_data) {
+            $_SESSION['error'] = 'Data pengguna tidak ditemukan.';
+            header('Location: /dashboard.php');
+            exit;
+}
+
+$current_name = htmlspecialchars($user_data['name']);
+$current_username = htmlspecialchars($user_data['username']);
+$current_email = htmlspecialchars($user_data['email']);
+$current_photo = $user_data['photo'];
+$current_role_name = 'wkwk';
+if (isset($user_data['role_id'])) {
+            $role_id = $user_data['role_id'];
+            $stmt_role = $conn->prepare("SELECT title FROM roles WHERE id = ?");
+            $stmt_role->bind_param('i', $role_id);
+            $stmt_role->execute();
+            $result_role = $stmt_role->get_result();
+            $role_data = $result_role->fetch_assoc();
+            if ($role_data) {
+                        $current_role_name = htmlspecialchars($role_data['title']);
+                        $_SESSION['roles'] = $current_role_name;
+            }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +75,7 @@ require_once __DIR__ . '/auth.php';
                                                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                                                     <div class="d-flex flex-column align-items-end">
                                                                                                 <span class="mr-2 d-none d-lg-inline text-dark small text-right"><?php echo htmlspecialchars($user['name']); ?></span>
-                                                                                                <small class="mr-2 d-none d-lg-inline text-muted text-right"><?php echo htmlspecialchars($_SESSION['roles'] ?? 'User'); ?></small>
+                                                                                                <small class="text-secondary"><?php echo $current_role_name; ?></small>
                                                                                     </div>
                                                                                     <?php
                                                                                     $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($user['photo'] ?? 'default.svg'));

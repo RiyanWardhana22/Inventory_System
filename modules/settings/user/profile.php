@@ -199,7 +199,7 @@ if (isset($_POST['update_profile'])) {
                                                             ?>
                                                             <img class="img-fluid rounded-circle mb-3" src="<?= $display_photo_path ?>" alt="Foto Profil" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #ddd;">
                                                             <h4 class="font-weight-bold text-gray-800 mb-1"><?= $current_name ?></h4>
-                                                            <small class="text-secondary"><?php echo $current_role_name; ?></small> <!-- Menampilkan nama peran -->
+                                                            <small class="text-secondary"><?php echo $current_role_name; ?></small>
                                                 </div>
                                     </div>
                         </div>
