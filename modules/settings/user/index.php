@@ -2,7 +2,7 @@
 $title = 'Manajemen User';
 $active_menu = 'settings';
 $active_submenu = 'user';
-require_once '../../includes/header.php';
+require_once __DIR__ . '/../../../includes/header.php';
 
 $sql = "SELECT u.*, r.title as role_title FROM users u JOIN roles r ON u.role_id = r.id ORDER BY u.name ASC";
 $users = $conn->query($sql);
@@ -60,5 +60,5 @@ $users = $conn->query($sql);
 </div>
 
 <?php
-require_once '../../includes/footer.php';
+require_once __DIR__ . '/../../../includes/footer.php';
 ?>

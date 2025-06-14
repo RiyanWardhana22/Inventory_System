@@ -21,25 +21,16 @@ if (!isset($user)) {
                                                 <li class="nav-item">
                                                             <a class="nav-link <?php echo $active_menu == 'master' ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#masterCollapse">
                                                                         <i class="bi bi-box-seam"></i>
-                                                                        <span>Master Barang</span>
+                                                                        <span>Kelola Produk</span>
                                                                         <i class="bi bi-chevron-down float-end"></i>
                                                             </a>
                                                             <div class="collapse <?php echo $active_menu == 'master' ? 'show' : ''; ?>" id="masterCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'satuan_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/satuan_barang/') ?>">Satuan Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Produk</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/produk') ?>">Produk</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/opname_produk/') ?>">Opname Produk</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'merk_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/jenis_barang') ?>">Merk Barang</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'customer' ? 'active' : ''; ?>" href="<?= base_url('modules/master/customer') ?>">Customer</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/opname_produk/') ?>">Opname Produk</a>
                                                                                     </li>
                                                                         </ul>
                                                             </div>
@@ -99,19 +90,19 @@ if (!isset($user)) {
                                                             <div class="collapse <?php echo $active_menu == 'settings' ? 'show' : ''; ?>" id="settingsCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'menu' ? 'active' : ''; ?>" href="../modules/settings/menu">Menu</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'menu' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Menu</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'user' ? 'active' : ''; ?>" href="../modules/settings/user">User</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'user' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/user/') ?>">User</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'role' ? 'active' : ''; ?>" href="../modules/settings/role">Role</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'role' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Role</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'hak_akses' ? 'active' : ''; ?>" href="../modules/settings/hak_akses">Hak Akses</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'hak_akses' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Hak Akses</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'website' ? 'active' : ''; ?>" href="../modules/settings/website">Website</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'website' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/website/') ?>">Website</a>
                                                                                     </li>
                                                                         </ul>
                                                             </div>
