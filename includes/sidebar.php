@@ -27,16 +27,16 @@ if (!isset($user)) {
                                                             <div class="collapse <?php echo $active_menu == 'master' ? 'show' : ''; ?>" id="masterCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/jenis_barang/') ?>">Jenis Barang</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'satuan_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/satuan_barang/') ?>">Satuan Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'merk_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/jenis_barang') ?>">Merk Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/barang') ?>">Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/barang') ?>">Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/opname_produk/') ?>">Opname Produk</a>
+                                                                                    </li>
+                                                                                    <li class="nav-item">
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'merk_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/jenis_barang') ?>">Merk Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'customer' ? 'active' : ''; ?>" href="<?= base_url('modules/master/customer') ?>">Customer</a>

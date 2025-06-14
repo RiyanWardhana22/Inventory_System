@@ -10,7 +10,6 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-// Check if jenis barang is used in barang table
 $check_sql = "SELECT COUNT(*) as total FROM barang WHERE jenis_barang_id = ?";
 $check_stmt = $conn->prepare($check_sql);
 $check_stmt->bind_param('i', $id);
