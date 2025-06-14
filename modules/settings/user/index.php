@@ -33,18 +33,19 @@ $users = $conn->query($sql);
                                                             while ($user_row = $users->fetch_assoc()): ?>
                                                                         <tr>
                                                                                     <td><?php echo $no++; ?></td>
-                                                                                    <td><?php echo $user_row['name']; ?></td>
-                                                                                    <td><?php echo $user_row['username']; ?></td>
-                                                                                    <td><?php echo $user_row['email']; ?></td>
-                                                                                    <td><?php echo $user_row['role_title']; ?></td>
+                                                                                    <td><?php echo htmlspecialchars($user_row['name']); ?></td>
+                                                                                    <td><?php echo htmlspecialchars($user_row['username']); ?></td>
+                                                                                    <td><?php echo htmlspecialchars($user_row['email']); ?></td>
+                                                                                    <td><?php echo htmlspecialchars($user_row['role_title']); ?></td>
                                                                                     <td>
                                                                                                 <a href="edit.php?id=<?php echo $user_row['id']; ?>" class="btn btn-warning btn-sm">
                                                                                                             <i class="bi bi-pencil"></i>
                                                                                                 </a>
-                                                                                                <?php if ($user_row['id'] != $user['id']): ?>
-                                                                                                            <a href="hapus.php?id=<?php echo $user_row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">
+                                                                                                <?php
+                                                                                                if (isset($_SESSION['user_id']) && $user_row['id'] != $_SESSION['user_id']): ?>
+                                                                                                            <button type="button" class="btn btn-danger btn-sm delete-btn" data-url="hapus.php?id=<?= $user_row['id']; ?>">
                                                                                                                         <i class="bi bi-trash"></i>
-                                                                                                            </a>
+                                                                                                            </button>
                                                                                                 <?php endif; ?>
                                                                                     </td>
                                                                         </tr>

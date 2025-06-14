@@ -15,7 +15,6 @@ while ($row = $roles_result->fetch_assoc()) {
 }
 
 $default_photo = 'default.svg';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name']);
             $username = trim($_POST['username']);
