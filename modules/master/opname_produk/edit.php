@@ -25,7 +25,6 @@ if (!$data) {
             exit;
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tanggal = trim($_POST['tanggal']);
             $nama_produk = trim($_POST['nama_produk']);

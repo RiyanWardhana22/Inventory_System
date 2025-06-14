@@ -30,7 +30,7 @@ if (!isset($user)) {
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'satuan_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/satuan_barang/') ?>">Satuan Barang</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/barang') ?>">Barang</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/produk') ?>">Produk</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'jenis_barang' ? 'active' : ''; ?>" href="<?= base_url('modules/master/opname_produk/') ?>">Opname Produk</a>

@@ -49,11 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         ?>
                         <form method="POST">
                                     <div class="form-group">
-                                                <label for="tanggal">Tanggal</label>
+                                                <label for="tanggal">Tanggal <span style="color: red;">*</span></label>
                                                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= isset($_POST['tanggal']) ? htmlspecialchars($_POST['tanggal']) : date('Y-m-d') ?>" required>
                                     </div>
                                     <div class="form-group">
-                                                <label for="nama_produk">Nama Produk</label>
+                                                <label for="nama_produk">Nama Produk <span style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= isset($_POST['nama_produk']) ? htmlspecialchars($_POST['nama_produk']) : '' ?>" required>
                                     </div>
                                     <div class="form-group">
