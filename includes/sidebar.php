@@ -90,13 +90,10 @@ if (!isset($user)) {
                                                             <div class="collapse <?php echo $active_menu == 'settings' ? 'show' : ''; ?>" id="settingsCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'menu' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Menu</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'user' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/user/') ?>">User</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'role' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Role</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'role' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/role/') ?>">Role</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'hak_akses' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Hak Akses</a>
