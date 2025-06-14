@@ -25,35 +25,24 @@ if (!$data) {
             exit;
 }
 
-$products_stmt = $conn->prepare("SELECT id, nama_barang FROM barang ORDER BY nama_barang ASC");
-$products_stmt->execute();
-$products_result = $products_stmt->get_result();
-$products = [];
-while ($row = $products_result->fetch_assoc()) {
-            $products[] = $row;
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tanggal = trim($_POST['tanggal']);
-            $id_produk = trim($_POST['id_produk']);
+            $nama_produk = trim($_POST['nama_produk']);
             $stok_awal = trim($_POST['stok_awal']);
             $stok_akhir = trim($_POST['stok_akhir']);
             $penjualan = trim($_POST['penjualan']);
             $bs = trim($_POST['bs']);
 
-            if (empty($tanggal) || empty($id_produk) || !is_numeric($stok_awal) || !is_numeric($stok_akhir) || !is_numeric($penjualan) || !is_numeric($bs)) {
-                        $_SESSION['error'] = 'Semua field harus diisi dengan benar';
+            $penjualan = empty($penjualan) ? 0 : (int)$penjualan;
+            $stmt = $conn->prepare("UPDATE opname_produk SET tanggal = ?, nama_produk = ?, stok_awal = ?, stok_akhir = ?, penjualan = ?, bs = ? WHERE id = ?");
+            $stmt->bind_param('ssssisi', $tanggal, $nama_produk, $stok_awal, $stok_akhir, $penjualan, $bs, $id);
+            if ($stmt->execute()) {
+                        $_SESSION['success'] = 'Opname produk berhasil diperbarui';
+                        header('Location: ./index.php');
+                        exit;
             } else {
-                        $stmt = $conn->prepare("UPDATE opname_produk SET tanggal = ?, id_produk = ?, stok_awal = ?, stok_akhir = ?, penjualan = ?, bs = ? WHERE id = ?");
-                        $stmt->bind_param('siiiiii', $tanggal, $id_produk, $stok_awal, $stok_akhir, $penjualan, $bs, $id);
-
-                        if ($stmt->execute()) {
-                                    $_SESSION['success'] = 'Opname produk berhasil diperbarui';
-                                    header('Location: ./index.php');
-                                    exit;
-                        } else {
-                                    $_SESSION['error'] = 'Opname produk gagal diperbarui: ' . $conn->error;
-                        }
+                        $_SESSION['error'] = 'Opname produk gagal diperbarui: ' . $conn->error;
             }
 }
 ?>
@@ -70,31 +59,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= htmlspecialchars($data['tanggal']); ?>" required>
                                     </div>
                                     <div class="form-group">
-                                                <label for="id_produk">Nama Produk</label>
-                                                <select class="form-control" id="id_produk" name="id_produk" required>
-                                                            <option value="">Pilih Produk</option>
-                                                            <?php foreach ($products as $product) { ?>
-                                                                        <option value="<?= $product['id']; ?>" <?= ($data['id_produk'] == $product['id']) ? 'selected' : '' ?>>
-                                                                                    <?= htmlspecialchars($product['nama_barang']); ?>
-                                                                        </option>
-                                                            <?php } ?>
-                                                </select>
+                                                <label for="nama_produk">Nama Produk</label>
+                                                <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= htmlspecialchars($data['nama_produk']); ?>" required>
                                     </div>
                                     <div class="form-group">
                                                 <label for="stok_awal">Stok Awal</label>
-                                                <input type="number" class="form-control" id="stok_awal" name="stok_awal" value="<?= htmlspecialchars($data['stok_awal']); ?>" required>
+                                                <input type="text" class="form-control" id="stok_awal" name="stok_awal" value="<?= htmlspecialchars($data['stok_awal']); ?>">
                                     </div>
                                     <div class="form-group">
                                                 <label for="stok_akhir">Stok Akhir</label>
-                                                <input type="number" class="form-control" id="stok_akhir" name="stok_akhir" value="<?= htmlspecialchars($data['stok_akhir']); ?>" required>
+                                                <input type="text" class="form-control" id="stok_akhir" name="stok_akhir" value="<?= htmlspecialchars($data['stok_akhir']); ?>">
                                     </div>
                                     <div class="form-group">
                                                 <label for="penjualan">Penjualan</label>
-                                                <input type="number" class="form-control" id="penjualan" name="penjualan" value="<?= htmlspecialchars($data['penjualan']); ?>" required>
+                                                <input type="number" class="form-control" id="penjualan" name="penjualan" value="<?= htmlspecialchars($data['penjualan']); ?>">
                                     </div>
                                     <div class="form-group">
                                                 <label for="bs">BS (Barang Sisa/Rusak)</label>
-                                                <input type="number" class="form-control" id="bs" name="bs" value="<?= htmlspecialchars($data['bs']); ?>" required>
+                                                <input type="text" class="form-control" id="bs" name="bs" value="<?= htmlspecialchars($data['bs']); ?>">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                     <a href="index.php" class="btn btn-secondary">Kembali</a>

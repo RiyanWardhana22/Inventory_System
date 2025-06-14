@@ -35,7 +35,7 @@ $active_submenu = 'opname_produk';
                                                             </thead>
                                                             <tbody>
                                                                         <?php
-                                                                        $sql = "SELECT op.*, b.nama_barang FROM opname_produk op JOIN barang b ON op.id_produk = b.id ORDER BY op.tanggal DESC";
+                                                                        $sql = "SELECT op.* FROM opname_produk op ORDER BY op.tanggal DESC";
                                                                         $result = $conn->query($sql);
                                                                         $no = 1;
                                                                         while ($row = $result->fetch_assoc()) {
@@ -43,7 +43,7 @@ $active_submenu = 'opname_produk';
                                                                                     <tr>
                                                                                                 <td><?= $no++; ?></td>
                                                                                                 <td><?= htmlspecialchars(date('d-m-Y', strtotime($row['tanggal']))); ?></td>
-                                                                                                <td><?= htmlspecialchars($row['nama_barang']); ?></td>
+                                                                                                <td><?= htmlspecialchars($row['nama_produk']); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['stok_awal']); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['stok_akhir']); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['penjualan']); ?></td>
