@@ -47,13 +47,12 @@ while ($row = $result->fetch_assoc()) {
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Laporan Opname Produk</h1>
             </div>
-
             <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Filter Laporan</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Data Laporan Opname Produk</h6>
                         </div>
                         <div class="card-body">
-                                    <form method="GET" action="">
+                                    <form class="mb-3" method="GET" action="">
                                                 <div class="row g-3 align-items-end">
                                                             <div class="col-md-4 col-lg-3">
                                                                         <label for="start_date" class="form-label">Tanggal Awal</label>
@@ -70,14 +69,6 @@ while ($row = $result->fetch_assoc()) {
                                                             </div>
                                                 </div>
                                     </form>
-                        </div>
-            </div>
-
-            <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Data Laporan Opname Produk</h6>
-                        </div>
-                        <div class="card-body">
                                     <div class="table-responsive">
                                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                             <thead>
