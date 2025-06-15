@@ -94,12 +94,6 @@ if (!isset($user)) {
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'user' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/user/') ?>">User</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'role' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/role/') ?>">Role</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'hak_akses' ? 'active' : ''; ?>" href="<?= base_url('modules/kelola/produk') ?>">Hak Akses</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
                                                                                                 <a class="nav-link <?php echo $active_submenu == 'website' ? 'active' : ''; ?>" href="<?= base_url('modules/settings/website/') ?>">Website</a>
                                                                                     </li>
                                                                         </ul>
