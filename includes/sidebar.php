@@ -80,7 +80,7 @@ if (isset($conn)) {
                                                             <div class="collapse <?php echo $active_menu == 'laporan' ? 'show' : ''; ?>" id="laporanCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'lap_barang_masuk' ? 'active' : ''; ?>" href="./modules/laporan/opname_produk/">Lap. Opname Produk</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'lap_barang_masuk' ? 'active' : ''; ?>" href="modules/laporan/opname_produk/">Lap. Opname Produk</a>
                                                                                     </li>
                                                                         </ul>
                                                             </div>
