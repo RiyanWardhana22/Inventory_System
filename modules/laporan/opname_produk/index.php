@@ -1,22 +1,18 @@
 <?php
-ob_start(); // Mulai output buffering
-require_once __DIR__ . '/../../../includes/header.php'; // Path ke file header Anda
+ob_start();
+require_once __DIR__ . '/../../../includes/header.php';
 
 $title = 'Laporan Opname Produk';
 $active_menu = 'laporan';
-$active_submenu = 'lap_opname_produk'; // Submenu baru untuk laporan ini
+$active_submenu = 'lap_opname_produk';
 
-// Ambil tanggal awal dan akhir dari parameter GET untuk filter
 $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : '';
 $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
 
-// Bangun query SQL dasar
 $sql = "SELECT * FROM opname_produk";
 $where_clauses = [];
 $bind_types = '';
 $bind_params = [];
-
-// Tambahkan filter tanggal jika ada
 if (!empty($start_date)) {
             $where_clauses[] = "tanggal >= ?";
             $bind_types .= 's';
@@ -27,19 +23,14 @@ if (!empty($end_date)) {
             $bind_types .= 's';
             $bind_params[] = $end_date;
 }
-
-// Gabungkan klausa WHERE jika ada
 if (!empty($where_clauses)) {
             $sql .= " WHERE " . implode(' AND ', $where_clauses);
 }
 
-// Tambahkan pengurutan
 $sql .= " ORDER BY tanggal DESC";
-
 $stmt = $conn->prepare($sql);
 
 if (!empty($bind_params)) {
-            // Memanggil bind_param secara dinamis
             call_user_func_array([$stmt, 'bind_param'], array_merge([$bind_types], $bind_params));
 }
 
@@ -50,7 +41,6 @@ $data_laporan = [];
 while ($row = $result->fetch_assoc()) {
             $data_laporan[] = $row;
 }
-
 ?>
 
 <div class="container-fluid">
@@ -76,9 +66,7 @@ while ($row = $result->fetch_assoc()) {
                                                             <div class="col-md-4 col-lg-6 d-flex justify-content-start gap-2">
                                                                         <button type="submit" class="btn btn-primary"><i class="bi bi-filter"></i> Filter</button>
                                                                         <a href="<?= $_SERVER['PHP_SELF'] ?>" class="btn btn-secondary"><i class="bi bi-arrow-clockwise"></i> Reset</a>
-                                                                        <!-- Tombol Print dan PDF -->
                                                                         <button type="button" class="btn btn-info print-btn" onclick="printReport()"><i class="bi bi-printer"></i> Print</button>
-                                                                        <button type="button" class="btn btn-danger pdf-btn" onclick="generatePdf()"><i class="bi bi-file-earmark-pdf"></i> PDF</button>
                                                             </div>
                                                 </div>
                                     </form>
@@ -134,31 +122,6 @@ require_once __DIR__ . '/../../../includes/footer.php';
 ?>
 
 <script>
-            // Fungsi untuk Print Laporan (membuka jendela baru untuk tampilan print-friendly)
-            function printReport() {
-                        let startDate = document.getElementById('start_date').value;
-                        let endDate = document.getElementById('end_date').value;
-                        let queryString = '';
-                        if (startDate) queryString += '&start_date=' + startDate;
-                        if (endDate) queryString += '&end_date=' + endDate;
 
-                        // Membuka jendela baru dengan versi laporan khusus print
-                        let printWindow = window.open('print_opname_produk.php?' + queryString.substring(1), '_blank');
-                        printWindow.focus();
-            }
-
-            // Fungsi untuk Generate PDF
-            function generatePdf() {
-                        let startDate = document.getElementById('start_date').value;
-                        let endDate = document.getElementById('end_date').value;
-                        let queryString = '';
-                        if (startDate) queryString += '&start_date=' + startDate;
-                        if (endDate) queryString += '&end_date=' + endDate;
-
-                        // Arahkan ke skrip yang akan menghasilkan PDF
-                        // Ini akan membutuhkan library PDF seperti FPDF/Dompdf di sisi server
-                        window.location.href = 'generate_pdf_opname_produk.php?' + queryString.substring(1);
-            }
 </script>
-
 <?php ob_end_flush(); ?>

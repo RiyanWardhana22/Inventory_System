@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../../config/database.php'; // Hanya butuh koneksi database
-require_once __DIR__ . '/../../../includes/functions.php'; // Untuk formatTanggal() jika ada
+// require_once __DIR__ . '/../../../includes/functions.php'; // Untuk formatTanggal() jika ada
 
 // Ambil tanggal awal dan akhir dari parameter GET
 $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : '';

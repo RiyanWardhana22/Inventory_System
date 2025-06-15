@@ -50,26 +50,6 @@ if (isset($conn)) {
                                                 </li>
                                     <?php endif; ?>
 
-                                    <?php if (checkAccess('transaksi')): ?>
-                                                <li class="nav-item">
-                                                            <a class="nav-link <?php echo $active_menu == 'transaksi' ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#transaksiCollapse">
-                                                                        <i class="bi bi-arrow-left-right"></i>
-                                                                        <span>Transaksi</span>
-                                                                        <i class="bi bi-chevron-down float-end"></i>
-                                                            </a>
-                                                            <div class="collapse <?php echo $active_menu == 'transaksi' ? 'show' : ''; ?>" id="transaksiCollapse">
-                                                                        <ul class="nav flex-column sub-menu">
-                                                                                    <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang_masuk' ? 'active' : ''; ?>" href="../modules/transaksi/barang_masuk">Barang Masuk</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'barang_keluar' ? 'active' : ''; ?>" href="../modules/transaksi/barang_keluar">Barang Keluar</a>
-                                                                                    </li>
-                                                                        </ul>
-                                                            </div>
-                                                </li>
-                                    <?php endif; ?>
-
                                     <?php if (checkAccess('laporan')): ?>
                                                 <li class="nav-item">
                                                             <a class="nav-link <?php echo $active_menu == 'laporan' ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#laporanCollapse">
@@ -80,7 +60,7 @@ if (isset($conn)) {
                                                             <div class="collapse <?php echo $active_menu == 'laporan' ? 'show' : ''; ?>" id="laporanCollapse">
                                                                         <ul class="nav flex-column sub-menu">
                                                                                     <li class="nav-item">
-                                                                                                <a class="nav-link <?php echo $active_submenu == 'lap_barang_masuk' ? 'active' : ''; ?>" href="modules/laporan/opname_produk/">Lap. Opname Produk</a>
+                                                                                                <a class="nav-link <?php echo $active_submenu == 'lap_barang_masuk' ? 'active' : ''; ?>" href="<?= base_url('modules/laporan/opname_produk/') ?>">Lap. Opname Produk</a>
                                                                                     </li>
                                                                         </ul>
                                                             </div>
