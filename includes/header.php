@@ -50,17 +50,27 @@ if (isset($user_data['role_id'])) {
 }
 
 $site_title_from_db = 'Silmarils Cookies Dessert';
+$site_logo_from_db = 'default_logo.svg';
+
 if (isset($conn)) {
-            $settings_stmt = $conn->prepare("SELECT site_title FROM website_settings WHERE id = 1");
+            $settings_stmt = $conn->prepare("SELECT site_title, site_logo FROM website_settings WHERE id = 1");
             if ($settings_stmt) {
                         $settings_stmt->execute();
                         $settings_result = $settings_stmt->get_result();
                         $settings = $settings_result->fetch_assoc();
-                        if ($settings && !empty($settings['site_title'])) {
-                                    $site_title_from_db = htmlspecialchars($settings['site_title']);
+                        if ($settings) {
+                                    if (!empty($settings['site_title'])) {
+                                                $site_title_from_db = htmlspecialchars($settings['site_title']);
+                                    }
+                                    if (!empty($settings['site_logo'])) {
+                                                $site_logo_from_db = htmlspecialchars($settings['site_logo']);
+                                    }
                         }
             }
 }
+
+$favicon_path = base_url('assets/images/logo/' . $site_logo_from_db);
+$default_favicon_path = base_url('assets/images/default_logo.svg');
 
 ?>
 <!DOCTYPE html>
@@ -70,6 +80,7 @@ if (isset($conn)) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title><?php echo $title; ?> | <?= $site_title_from_db ?></title>
+            <link rel="icon" href="<?= $favicon_path ?>" type="image/x-icon" onerror="this.onerror=null;this.href='<?= $default_favicon_path ?>'">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
             <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet">
