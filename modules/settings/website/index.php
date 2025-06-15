@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     // Error already set, retain old logo
                         } else {
                                     if (move_uploaded_file($_FILES['site_logo']['tmp_name'], $target_file)) {
-                                                // Hapus logo lama jika ada dan bukan logo default
                                                 if ($current_site_logo && file_exists($target_dir . $current_site_logo) && $current_site_logo !== $default_logo_filename) {
                                                             unlink($target_dir . $current_site_logo);
                                                 }
@@ -82,16 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     }
                         }
             }
-
-            // Update settings in database
             if (!isset($_SESSION['error'])) {
                         $update_stmt = $conn->prepare("UPDATE website_settings SET site_title = ?, site_description = ?, site_logo = ? WHERE id = 1");
                         $update_stmt->bind_param('sss', $new_site_title, $new_site_description, $logo_filename);
 
                         if ($update_stmt->execute()) {
                                     $_SESSION['success'] = 'Pengaturan website berhasil diperbarui!';
-                                    // Penting: Refresh pengaturan di sesi/global agar perubahan langsung terlihat
-                                    // Ini akan dibahas di bagian selanjutnya (memuat pengaturan global di header.php)
                                     header('Location: ' . $_SERVER['PHP_SELF']);
                                     exit;
                         } else {
@@ -105,12 +100,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Pengaturan Website</h1>
             </div>
-
-            <?php include __DIR__ . '/../../../includes/alert.php'; // Include alert system 
+            <?php include __DIR__ . '/../../../includes/alert.php';
             ?>
-
             <div class="row">
-                        <!-- Panel Profil Website (Preview) -->
                         <div class="col-lg-5 mb-4">
                                     <div class="card shadow">
                                                 <div class="card-header py-3">
@@ -131,8 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 </div>
                                     </div>
                         </div>
-
-                        <!-- Panel Ubah Pengaturan (Form) -->
                         <div class="col-lg-7 mb-4">
                                     <div class="card shadow">
                                                 <div class="card-header py-3">
