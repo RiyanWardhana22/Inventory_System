@@ -2,10 +2,23 @@
 if (!isset($user)) {
             die('User data not available');
 }
+
+$site_title = 'Silmarils Cookies Dessert';
+if (isset($conn)) {
+            $settings_stmt = $conn->prepare("SELECT site_title FROM website_settings WHERE id = 1");
+            if ($settings_stmt) {
+                        $settings_stmt->execute();
+                        $settings_result = $settings_stmt->get_result();
+                        $settings = $settings_result->fetch_assoc();
+                        if ($settings && !empty($settings['site_title'])) {
+                                    $site_title = htmlspecialchars($settings['site_title']);
+                        }
+            }
+}
 ?>
 <div class="sidebar">
             <div class="sidebar-brand text-center py-3">
-                        <h4>Silmarils Cookies Dessert</h4>
+                        <h4><?= $site_title ?></h4>
             </div>
             <div class="sidebar-nav">
                         <ul class="nav flex-column">

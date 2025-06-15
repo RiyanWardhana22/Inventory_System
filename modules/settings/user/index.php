@@ -10,7 +10,7 @@ $users = $conn->query($sql);
 
 <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                        <h6 class="m-0 font-weight-bold text-primary">Data User</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Manajemen User</h6>
                         <a href="tambah.php" class="btn btn-primary btn-sm">
                                     <i class="bi bi-plus"></i> Tambah User
                         </a>

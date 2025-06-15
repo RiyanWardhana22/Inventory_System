@@ -1,5 +1,18 @@
 <?php
+$title = 'LOGIN';
 require_once 'config/database.php';
+$site_title_from_db = 'Silmarils Cookies Dessert';
+if (isset($conn)) {
+            $settings_stmt = $conn->prepare("SELECT site_title FROM website_settings WHERE id = 1");
+            if ($settings_stmt) {
+                        $settings_stmt->execute();
+                        $settings_result = $settings_stmt->get_result();
+                        $settings = $settings_result->fetch_assoc();
+                        if ($settings && !empty($settings['site_title'])) {
+                                    $site_title_from_db = htmlspecialchars($settings['site_title']);
+                        }
+            }
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
@@ -29,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>INVENTORYWEB | LOGIN</title>
+            <title><?php echo $title; ?> | <?= $site_title_from_db ?></title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="assets/css/login.css">
 </head>
@@ -37,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
             <div class="login-card">
                         <h2 class="text-center">LOGIN</h2>
-                        <h5 class="text-center mb-5">Silmarils Cookies Dessert</h5>
+                        <h5 class="text-center mb-5"><?php echo $site_title_from_db ?></h5>
                         <?php if (isset($error)) : ?>
                                     <div class="alert alert-danger"><?php echo $error; ?></div>
                         <?php endif; ?>
