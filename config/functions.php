@@ -17,10 +17,10 @@ function generateKode($prefix, $table, $field)
 function checkAccess($menu_slug)
 {
             global $conn, $user;
-            if ($user['role_title'] == 'Super Admin') {
+            if ($user['role_title'] == 'Admin') {
                         return true;
             }
-            if ($user['role_title'] == 'Operator') {
+            if ($user['role_title'] == 'Pegawai') {
                         $request_uri = $_SERVER['REQUEST_URI'];
                         if (strpos($request_uri, '/settings/') !== false) {
                                     return false;

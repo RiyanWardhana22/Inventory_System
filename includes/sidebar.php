@@ -81,7 +81,7 @@ if (!isset($user)) {
                                     <?php endif; ?>
 
                                     <?php
-                                    if (isset($user['role_title']) && $user['role_title'] === 'Super Admin'): ?>
+                                    if (isset($user['role_title']) && $user['role_title'] === 'Admin'): ?>
                                                 <li class="nav-item">
                                                             <a class="nav-link <?php echo $active_menu == 'settings' ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#settingsCollapse">
                                                                         <i class="bi bi-gear"></i>
