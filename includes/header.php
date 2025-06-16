@@ -85,47 +85,53 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
             <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
             <div class="wrapper">
-                        <div class="overlay"></div> <?php include __DIR__ . '/sidebar.php'; ?>
+                        <div class="overlay"></div>
+                        <?php include __DIR__ . '/sidebar.php'; ?>
                         <div class="main">
-                                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                                                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                                                            <i class="bi bi-list"></i>
-                                                </button>
-                                                <ul class="navbar-nav ms-auto">
-                                                            <li class="nav-item dropdown no-arrow">
-                                                                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                    <div class="d-flex flex-column align-items-end">
-                                                                                                <span class="mr-2 d-none d-lg-inline text-dark small text-right"><?php echo htmlspecialchars($user['name']); ?></span>
-                                                                                                <small class="text-secondary"><?php echo $current_role_name; ?></small>
-                                                                                    </div>
-                                                                                    <?php
-                                                                                    $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($user['photo'] ?? 'default.svg'));
-                                                                                    $fallback_image = base_url('assets/images/default.svg');
-                                                                                    ?>
-                                                                                    <img class="img-profile rounded-circle"
-                                                                                                src="<?= $header_photo_path ?>"
-                                                                                                width="40"
-                                                                                                height="40"
-                                                                                                style="object-fit: cover;"
-                                                                                                onerror="this.onerror=null;this.src='<?= $fallback_image ?>'">
-                                                                        </a>
-                                                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                                                                    <a class="dropdown-item" href="<?php echo base_url('modules/settings/user/profile.php'); ?>">
-                                                                                                <i class="bi bi-person fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                                                                Profile
-                                                                                    </a>
-                                                                                    <div class="dropdown-divider"></div>
-                                                                                    <a class="dropdown-item" href="<?php echo base_url('logout.php'); ?>">
-                                                                                                <i class="bi bi-box-arrow-right fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                                                                Logout
-                                                                                    </a>
-                                                                        </div>
-                                                            </li>
-                                                </ul>
+                                    <nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow-sm">
+                                                <div class="container-fluid">
+                                                            <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle me-3">
+                                                                        <i class="bi bi-list fs-4"></i>
+                                                            </button>
+
+                                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                                                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                                                                                    <li class="nav-item dropdown">
+                                                                                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                                            <div class="d-flex flex-column text-end me-2"> <span class="fw-semibold text-dark"><?php echo htmlspecialchars($user['name']); ?></span>
+                                                                                                                        <small class="text-secondary"><?php echo $current_role_name; ?></small>
+                                                                                                            </div>
+                                                                                                            <?php
+                                                                                                            $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($user['photo'] ?? 'default.svg'));
+                                                                                                            $fallback_image = base_url('assets/images/default.svg');
+                                                                                                            ?>
+                                                                                                            <img class="img-profile rounded-circle"
+                                                                                                                        src="<?= $header_photo_path ?>"
+                                                                                                                        width="35"
+                                                                                                                        height="35"
+                                                                                                                        style="object-fit: cover;"
+                                                                                                                        onerror="this.onerror=null;this.src='<?= $fallback_image ?>'">
+                                                                                                </a>
+                                                                                                <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
+                                                                                                            <a class="dropdown-item" href="<?php echo base_url('modules/settings/user/profile.php'); ?>">
+                                                                                                                        <i class="bi bi-person me-2 text-gray-400"></i>
+                                                                                                                        Profile
+                                                                                                            </a>
+                                                                                                            <div class="dropdown-divider"></div>
+                                                                                                            <a class="dropdown-item" href="<?php echo base_url('logout.php'); ?>">
+                                                                                                                        <i class="bi bi-box-arrow-right me-2 text-gray-400"></i>
+                                                                                                                        Logout
+                                                                                                            </a>
+                                                                                                </div>
+                                                                                    </li>
+                                                                        </ul>
+                                                            </div>
+                                                </div>
                                     </nav>
                                     <div class="container-fluid">
                                                 <?php include 'alert.php'; ?>
