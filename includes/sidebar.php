@@ -15,6 +15,13 @@ if (isset($conn)) {
                         }
             }
 }
+
+if (!isset($active_menu)) {
+            $active_menu = '';
+}
+if (!isset($active_submenu)) {
+            $active_submenu = '';
+}
 ?>
 <style>
             .sidebar-nav ul,
@@ -133,9 +140,53 @@ if (isset($conn)) {
             @media (max-width: 768px) {
                         .sidebar {
                                     margin-left: -250px;
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    bottom: 0;
+                                    z-index: 1030;
+                                    height: 100vh;
+                                    overflow-y: auto;
+                                    transition: margin-left 0.3s ease-in-out;
+                                    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
                         }
 
                         .sidebar.active {
+                                    margin-left: 0;
+                        }
+
+                        .main {
+                                    width: 100%;
+                                    margin-left: 0;
+                        }
+
+                        .navbar-expand .navbar-toggler {
+                                    display: block;
+                        }
+
+                        .overlay {
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100vw;
+                                    height: 100vh;
+                                    background: rgba(0, 0, 0, 0.7);
+                                    z-index: 1029;
+                                    display: none;
+                        }
+
+                        .wrapper.sidebar-toggled .overlay {
+                                    display: block;
+                        }
+            }
+
+            @media (min-width: 769px) {
+                        .sidebar {
+                                    position: relative;
+                                    margin-left: 0;
+                        }
+
+                        .main {
                                     margin-left: 0;
                         }
             }
@@ -156,13 +207,13 @@ if (isset($conn)) {
 
                                     <?php if (checkAccess('master')): ?>
                                                 <li class="nav-item">
-                                                            <a class="nav-link <?= $active_menu == 'master' ? 'active' : ''; ?>"
+                                                            <a class="nav-link <?= $active_menu == 'produk' ? 'active' : ''; ?>"
                                                                         href="<?= base_url('modules/kelola/produk') ?>"> <i class="bi bi-tags"></i>
                                                                         <span>Produk</span>
                                                             </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                            <a class="nav-link <?= $active_menu == 'master' ? 'active' : ''; ?>"
+                                                            <a class="nav-link <?= $active_menu == 'opname_produk' ? 'active' : ''; ?>"
                                                                         href="<?= base_url('modules/kelola/opname_produk') ?>"> <i class="bi bi-box-seam"></i>
                                                                         <span>Opname Produk</span>
                                                             </a>

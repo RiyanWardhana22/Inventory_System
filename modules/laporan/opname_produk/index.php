@@ -4,7 +4,6 @@ require_once __DIR__ . '/../../../includes/header.php';
 
 $title = 'Laporan Opname Produk';
 $active_menu = 'laporan';
-$active_submenu = 'lap_opname_produk';
 
 $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : '';
 $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';

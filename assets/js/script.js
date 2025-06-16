@@ -54,3 +54,68 @@ $(document).ready(function () {
     },
   });
 });
+
+// SIDEBAR
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebarToggle = document.getElementById("sidebarToggleTop");
+  const sidebar = document.querySelector(".sidebar");
+  const wrapper = document.querySelector(".wrapper");
+
+  if (sidebarToggle && sidebar && wrapper) {
+    sidebarToggle.addEventListener("click", function () {
+      sidebar.classList.toggle("active");
+      wrapper.classList.toggle("sidebar-toggled");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (
+        window.innerWidth <= 768 &&
+        !sidebar.contains(e.target) &&
+        !sidebarToggle.contains(e.target) &&
+        sidebar.classList.contains("active")
+      ) {
+        sidebar.classList.remove("active");
+        wrapper.classList.remove("sidebar-toggled");
+      }
+    });
+  }
+
+  const settingsCollapseLink = document.querySelector(
+    '.nav-link[data-bs-toggle="collapse"]'
+  );
+  if (settingsCollapseLink) {
+    settingsCollapseLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetCollapse = document.querySelector(targetId);
+      if (targetCollapse) {
+        if (targetCollapse.classList.contains("show")) {
+          targetCollapse.classList.remove("show");
+          this.setAttribute("aria-expanded", "false");
+          this.classList.add("collapsed");
+        } else {
+          targetCollapse.classList.add("show");
+          this.setAttribute("aria-expanded", "true");
+          this.classList.remove("collapsed");
+        }
+      }
+    });
+  }
+
+  const activeSubmenuLink = document.querySelector(
+    ".sub-menu .nav-link.active"
+  );
+  if (activeSubmenuLink) {
+    const parentCollapse = activeSubmenuLink.closest(".collapse");
+    if (parentCollapse) {
+      parentCollapse.classList.add("show");
+      const toggleLink = document.querySelector(
+        `[href="#${parentCollapse.id}"]`
+      );
+      if (toggleLink) {
+        toggleLink.setAttribute("aria-expanded", "true");
+        toggleLink.classList.remove("collapsed");
+      }
+    }
+  }
+});

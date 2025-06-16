@@ -2,8 +2,7 @@
 require_once __DIR__ . '/../../../includes/header.php';
 
 $title = 'Data Produk';
-$active_menu = 'master';
-$active_submenu = 'produk';
+$active_menu = 'produk';
 ?>
 
 <div class="container-fluid">

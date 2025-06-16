@@ -89,7 +89,7 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
 
 <body>
             <div class="wrapper">
-                        <?php include __DIR__ . '/sidebar.php'; ?>
+                        <div class="overlay"></div> <?php include __DIR__ . '/sidebar.php'; ?>
                         <div class="main">
                                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                                                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -129,3 +129,6 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
                                     </nav>
                                     <div class="container-fluid">
                                                 <?php include 'alert.php'; ?>
+</body>
+
+</html>
