@@ -51,7 +51,6 @@ if (isset($user_data['role_id'])) {
 
 $site_title_from_db = 'Silmarils Cookies Dessert';
 $site_logo_from_db = 'default_logo.svg';
-
 if (isset($conn)) {
             $settings_stmt = $conn->prepare("SELECT site_title, site_logo FROM website_settings WHERE id = 1");
             if ($settings_stmt) {

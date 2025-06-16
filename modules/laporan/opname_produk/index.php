@@ -31,7 +31,12 @@ $sql .= " ORDER BY tanggal DESC";
 $stmt = $conn->prepare($sql);
 
 if (!empty($bind_params)) {
-            call_user_func_array([$stmt, 'bind_param'], array_merge([$bind_types], $bind_params));
+            $refs = [];
+            foreach ($bind_params as $key => $value) {
+                        $refs[$key] = &$bind_params[$key];
+            }
+            array_unshift($refs, $bind_types);
+            call_user_func_array([$stmt, 'bind_param'], $refs);
 }
 
 $stmt->execute();
