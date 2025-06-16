@@ -35,23 +35,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="card-body">
                         <?php include __DIR__ . '/../../../includes/alert.php'; ?>
                         <form method="POST">
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="tanggal">Tanggal <span style="color: red;">*</span></label>
                                                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= isset($_POST['tanggal']) ? htmlspecialchars($_POST['tanggal']) : date('Y-m-d') ?>" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="nama_produk">Nama Produk <span style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= isset($_POST['nama_produk']) ? htmlspecialchars($_POST['nama_produk']) : '' ?>" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="kode_produk">Kode Produk</label>
                                                 <input type="text" class="form-control" id="kode_produk" name="kode_produk" value="<?= isset($_POST['kode_produk']) ? htmlspecialchars($_POST['kode_produk']) : '' ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="jumlah_produk">Jumlah Produk</label>
                                                 <input type="number" class="form-control" id="jumlah_produk" name="jumlah_produk" value="<?= isset($_POST['jumlah_produk']) ? htmlspecialchars($_POST['jumlah_produk']) : '' ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="keterangan">Keterangan</label>
                                                 <textarea class="form-control" id="keterangan" name="keterangan" rows="3"><?= isset($_POST['keterangan']) ? htmlspecialchars($_POST['keterangan']) : '' ?></textarea>
                                     </div>

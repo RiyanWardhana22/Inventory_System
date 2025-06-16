@@ -5,30 +5,27 @@ $title = 'Data Produk';
 $active_menu = 'produk';
 ?>
 
-<div class="container-fluid">
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Produk</h1>
-            </div>
-
-            <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+<div class="container-fluid ">
+            <div class="card shadow border-0 rounded-lg mb-4">
+                        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom-0">
                                     <h6 class="m-0 font-weight-bold text-primary">Daftar Produk</h6>
-                                    <a href="tambah.php" class="btn btn-primary btn-sm">
-                                                <i class="bi bi-plus"></i> Tambah Data
+                                    <a href="tambah.php" class="btn btn-primary d-flex align-items-center">
+                                                <i class="bi bi-plus me-2"></i>
+                                                Tambah Data
                                     </a>
                         </div>
                         <div class="card-body">
                                     <div class="table-responsive">
-                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                            <thead>
+                                                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                            <thead class="bg-light">
                                                                         <tr>
-                                                                                    <th width="5%">NO</th>
+                                                                                    <th class="text-center">NO</th>
                                                                                     <th>TANGGAL</th>
                                                                                     <th>NAMA PRODUK</th>
                                                                                     <th>KODE PRODUK</th>
-                                                                                    <th>JUMLAH PRODUK</th>
+                                                                                    <th>JUMLAH</th>
                                                                                     <th>KETERANGAN</th>
-                                                                                    <th width="15%">ACTION</th>
+                                                                                    <th class="text-center">AKSI</th>
                                                                         </tr>
                                                             </thead>
                                                             <tbody>
@@ -39,17 +36,17 @@ $active_menu = 'produk';
                                                                         while ($row = $result->fetch_assoc()) {
                                                                         ?>
                                                                                     <tr>
-                                                                                                <td><?= $no++; ?></td>
+                                                                                                <td class="text-center"><?= $no++; ?></td>
                                                                                                 <td><?= htmlspecialchars(date('d-m-Y', strtotime($row['tanggal']))); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['nama_produk']); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['kode_produk']); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['jumlah_produk']); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['keterangan']); ?></td>
-                                                                                                <td>
-                                                                                                            <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-warning btn-sm">
+                                                                                                <td class="text-center">
+                                                                                                            <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-sm btn-outline-warning me-1" title="Edit">
                                                                                                                         <i class="bi bi-pencil"></i>
                                                                                                             </a>
-                                                                                                            <button type="button" class="btn btn-danger btn-sm delete-btn" data-url="hapus.php?id=<?= $row['id']; ?>">
+                                                                                                            <button type="button" class="btn btn-sm btn-outline-danger delete-btn" data-url="hapus.php?id=<?= $row['id']; ?>" title="Hapus">
                                                                                                                         <i class="bi bi-trash"></i>
                                                                                                             </button>
                                                                                                 </td>
