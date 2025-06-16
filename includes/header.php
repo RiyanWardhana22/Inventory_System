@@ -99,15 +99,16 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
                                                                         <i class="bi bi-list fs-4"></i>
                                                             </button>
 
-                                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                                                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                                                            <div class="ms-auto">
+                                                                        <ul class="navbar-nav align-items-center">
                                                                                     <li class="nav-item dropdown">
                                                                                                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                                            <div class="d-flex flex-column text-end me-2"> <span class="fw-semibold text-dark"><?php echo htmlspecialchars($user['name']); ?></span>
+                                                                                                            <div class="d-flex flex-column text-end me-2">
+                                                                                                                        <span class="fw-semibold text-dark"><?php echo $current_name; ?></span>
                                                                                                                         <small class="text-secondary"><?php echo $current_role_name; ?></small>
                                                                                                             </div>
                                                                                                             <?php
-                                                                                                            $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($user['photo'] ?? 'default.svg'));
+                                                                                                            $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($current_photo ?? 'default.svg')); // Gunakan $current_photo
                                                                                                             $fallback_image = base_url('assets/images/default.svg');
                                                                                                             ?>
                                                                                                             <img class="img-profile rounded-circle"
