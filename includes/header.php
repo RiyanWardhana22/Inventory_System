@@ -108,7 +108,7 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
                                                                                                                         <small class="text-secondary"><?php echo $current_role_name; ?></small>
                                                                                                             </div>
                                                                                                             <?php
-                                                                                                            $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($current_photo ?? 'default.svg')); // Gunakan $current_photo
+                                                                                                            $header_photo_path = base_url('assets/images/profile_photos/' . htmlspecialchars($current_photo ?? 'default.svg'));
                                                                                                             $fallback_image = base_url('assets/images/default.svg');
                                                                                                             ?>
                                                                                                             <img class="img-profile rounded-circle"
@@ -118,7 +118,7 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
                                                                                                                         style="object-fit: cover;"
                                                                                                                         onerror="this.onerror=null;this.src='<?= $fallback_image ?>'">
                                                                                                 </a>
-                                                                                                <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
+                                                                                                <div class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown" data-bs-popper="static">
                                                                                                             <a class="dropdown-item" href="<?php echo base_url('modules/settings/user/profile.php'); ?>">
                                                                                                                         <i class="bi bi-person me-2 text-gray-400"></i>
                                                                                                                         Profile

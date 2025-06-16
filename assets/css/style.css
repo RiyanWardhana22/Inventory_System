@@ -36,9 +36,17 @@ body {
 }
 
 .dropdown-menu {
+  position: absolute !important;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  z-index: 1060;
+}
+
+.dropdown-menu.dropdown-menu-end {
+  right: 0 !important;
+  left: auto !important;
+  min-width: 10rem;
 }
 
 .dropdown-item {
