@@ -81,8 +81,8 @@ $default_favicon_path = base_url('assets/images/default_logo.svg');
             <title><?php echo $title; ?> | <?= $site_title_from_db ?></title>
             <link rel="icon" href="<?= $favicon_path ?>" type="image/x-icon" onerror="this.onerror=null;this.href='<?= $default_favicon_path ?>'">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-            <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet">
             <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet">
             <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 </head>

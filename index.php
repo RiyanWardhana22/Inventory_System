@@ -11,7 +11,7 @@ require_once 'includes/header.php';
                                                 <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
                                                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                                    Produk</div>
+                                                                                    Total Produk</div>
                                                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                                                     <?php
                                                                                     $sql = "SELECT COUNT(*) as total FROM opname_produk";
@@ -35,7 +35,7 @@ require_once 'includes/header.php';
                                                 <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
                                                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                                    User</div>
+                                                                                    Total User</div>
                                                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                                                     <?php
                                                                                     $sql = "SELECT COUNT(*) as total FROM users";
