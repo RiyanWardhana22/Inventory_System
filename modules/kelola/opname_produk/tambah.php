@@ -6,7 +6,7 @@ $title = 'Tambah Opname Produk';
 $active_menu = 'master';
 $active_submenu = 'opname_produk';
 
-$products_stmt = $conn->prepare("SELECT id, nama_barang FROM barang ORDER BY nama_barang ASC");
+$products_stmt = $conn->prepare("SELECT id, nama_produk FROM opname_produk ORDER BY nama_produk ASC");
 $products_stmt->execute();
 $products_result = $products_stmt->get_result();
 $products = [];
@@ -48,27 +48,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php include __DIR__ . '/../../../includes/alert.php';
                         ?>
                         <form method="POST">
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="tanggal">Tanggal <span style="color: red;">*</span></label>
                                                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= isset($_POST['tanggal']) ? htmlspecialchars($_POST['tanggal']) : date('Y-m-d') ?>" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="nama_produk">Nama Produk <span style="color: red;">*</span></label>
                                                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= isset($_POST['nama_produk']) ? htmlspecialchars($_POST['nama_produk']) : '' ?>" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="stok_awal">Stok Awal</label>
                                                 <input type="text" class="form-control" id="stok_awal" name="stok_awal" value="<?= isset($_POST['stok_awal']) ? htmlspecialchars($_POST['stok_awal']) : '' ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="stok_akhir">Stok Akhir</label>
                                                 <input type="text" class="form-control" id="stok_akhir" name="stok_akhir" value="<?= isset($_POST['stok_akhir']) ? htmlspecialchars($_POST['stok_akhir']) : '' ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="penjualan">Penjualan</label>
                                                 <input type="number" class="form-control" id="penjualan" name="penjualan" value="<?= isset($_POST['penjualan']) ? htmlspecialchars($_POST['penjualan']) : '' ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="bs">BS (Barang Sisa/Rusak)</label>
                                                 <input type="text" class="form-control" id="bs" name="bs" value="<?= isset($_POST['bs']) ? htmlspecialchars($_POST['bs']) : '' ?>">
                                     </div>

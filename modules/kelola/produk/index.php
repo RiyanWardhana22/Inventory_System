@@ -5,6 +5,11 @@ $title = 'Data Produk';
 $active_menu = 'produk';
 ?>
 
+<style>
+            .btn {
+                        margin-bottom: 5px;
+            }
+</style>
 <div class="container-fluid ">
             <div class="card shadow border-0 rounded-lg mb-4">
                         <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom-0">
@@ -39,9 +44,9 @@ $active_menu = 'produk';
                                                                                                 <td class="text-center"><?= $no++; ?></td>
                                                                                                 <td><?= htmlspecialchars(date('d-m-Y', strtotime($row['tanggal']))); ?></td>
                                                                                                 <td><?= htmlspecialchars($row['nama_produk']); ?></td>
-                                                                                                <td><?= htmlspecialchars($row['kode_produk']); ?></td>
-                                                                                                <td><?= htmlspecialchars($row['jumlah_produk']); ?></td>
-                                                                                                <td><?= htmlspecialchars($row['keterangan']); ?></td>
+                                                                                                <td class="text-center"><?= htmlspecialchars($row['kode_produk']); ?></td>
+                                                                                                <td class="text-center"><?= htmlspecialchars($row['jumlah_produk']); ?></td>
+                                                                                                <td class="text-start"><?= htmlspecialchars($row['keterangan']); ?></td>
                                                                                                 <td class="text-center">
                                                                                                             <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-sm btn-outline-warning me-1" title="Edit">
                                                                                                                         <i class="bi bi-pencil"></i>

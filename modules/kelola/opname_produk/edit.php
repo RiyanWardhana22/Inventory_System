@@ -53,27 +53,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="card-body">
                         <?php include __DIR__ . '/../../../includes/alert.php'; ?>
                         <form method="POST">
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="tanggal">Tanggal</label>
                                                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= htmlspecialchars($data['tanggal']); ?>" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="nama_produk">Nama Produk</label>
                                                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?= htmlspecialchars($data['nama_produk']); ?>" required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="stok_awal">Stok Awal</label>
                                                 <input type="text" class="form-control" id="stok_awal" name="stok_awal" value="<?= htmlspecialchars($data['stok_awal']); ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="stok_akhir">Stok Akhir</label>
                                                 <input type="text" class="form-control" id="stok_akhir" name="stok_akhir" value="<?= htmlspecialchars($data['stok_akhir']); ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="penjualan">Penjualan</label>
                                                 <input type="number" class="form-control" id="penjualan" name="penjualan" value="<?= htmlspecialchars($data['penjualan']); ?>">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mb-2">
                                                 <label for="bs">BS (Barang Sisa/Rusak)</label>
                                                 <input type="text" class="form-control" id="bs" name="bs" value="<?= htmlspecialchars($data['bs']); ?>">
                                     </div>
