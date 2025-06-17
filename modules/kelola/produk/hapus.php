@@ -9,13 +9,13 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-$stmt = $conn->prepare("DELETE FROM opname_produk WHERE id = ?");
+$stmt = $conn->prepare("DELETE FROM produk WHERE id = ?");
 $stmt->bind_param('i', $id);
 
 if ($stmt->execute()) {
-            $_SESSION['success'] = 'Opname produk berhasil dihapus';
+            $_SESSION['success'] = 'Produk berhasil dihapus';
 } else {
-            $_SESSION['error'] = 'Opname produk gagal dihapus: ' . $conn->error;
+            $_SESSION['error'] = 'Produk gagal dihapus: ' . $conn->error;
 }
 
 header('Location: index.php');
