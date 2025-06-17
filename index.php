@@ -114,7 +114,6 @@ require_once 'includes/header.php';
             .section-title {
                         font-weight: 600;
                         color: var(--dark);
-                        margin-bottom: 1.5rem;
                         position: relative;
                         padding-bottom: 10px;
             }

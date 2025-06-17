@@ -1,6 +1,13 @@
 <?php
 require_once __DIR__ . '/../../../config/database.php';
 
+if (!function_exists('formatTanggal')) {
+            function formatTanggal($date_string)
+            {
+                        return date('d-m-Y', strtotime($date_string));
+            }
+}
+
 $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : '';
 $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
 
@@ -12,12 +19,12 @@ $bind_params = [];
 if (!empty($start_date)) {
             $where_clauses[] = "tanggal >= ?";
             $bind_types .= 's';
-            $bind_params[] = $start_date;
+            $bind_params[] = &$start_date;
 }
 if (!empty($end_date)) {
             $where_clauses[] = "tanggal <= ?";
             $bind_types .= 's';
-            $bind_params[] = $end_date;
+            $bind_params[] = &$end_date;
 }
 
 if (!empty($where_clauses)) {
@@ -28,7 +35,8 @@ $sql .= " ORDER BY tanggal ASC";
 $stmt = $conn->prepare($sql);
 
 if (!empty($bind_params)) {
-            call_user_func_array([$stmt, 'bind_param'], array_merge([$bind_types], $bind_params));
+            $params = array_merge([$bind_types], $bind_params);
+            call_user_func_array([$stmt, 'bind_param'], $params);
 }
 
 $stmt->execute();
