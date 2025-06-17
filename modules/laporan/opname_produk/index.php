@@ -48,42 +48,43 @@ while ($row = $result->fetch_assoc()) {
 ?>
 
 <div class="container-fluid">
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Laporan Opname Produk</h1>
-            </div>
-            <div class="card shadow mb-4">
-                        <div class="card-header py-3">
+            <div class="card shadow border-0 rounded-lg mb-4">
+                        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-bottom-0">
                                     <h6 class="m-0 font-weight-bold text-primary">Data Laporan Opname Produk</h6>
                         </div>
                         <div class="card-body">
-                                    <form class="mb-3" method="GET" action="">
+                                    <form class="mb-4" method="GET" action="">
                                                 <div class="row g-3 align-items-end">
                                                             <div class="col-md-4 col-lg-3">
-                                                                        <label for="start_date" class="form-label">Tanggal Awal</label>
-                                                                        <input type="date" class="form-control" id="start_date" name="start_date" value="<?= htmlspecialchars($start_date) ?>">
+                                                                        <label for="start_date" class="form-label text-muted small">Tanggal Awal</label> <input type="date" class="form-control" id="start_date" name="start_date" value="<?= htmlspecialchars($start_date) ?>">
                                                             </div>
                                                             <div class="col-md-4 col-lg-3">
-                                                                        <label for="end_date" class="form-label">Tanggal Akhir</label>
-                                                                        <input type="date" class="form-control" id="end_date" name="end_date" value="<?= htmlspecialchars($end_date) ?>">
+                                                                        <label for="end_date" class="form-label text-muted small">Tanggal Akhir</label> <input type="date" class="form-control" id="end_date" name="end_date" value="<?= htmlspecialchars($end_date) ?>">
                                                             </div>
                                                             <div class="col-md-4 col-lg-6 d-flex justify-content-start gap-2">
-                                                                        <button type="submit" class="btn btn-primary"><i class="bi bi-filter"></i> Filter</button>
-                                                                        <a href="<?= $_SERVER['PHP_SELF'] ?>" class="btn btn-secondary"><i class="bi bi-arrow-clockwise"></i> Reset</a>
-                                                                        <button type="button" class="btn btn-info print-btn" onclick="printReport()"><i class="bi bi-printer"></i> Print</button>
+                                                                        <button type="submit" class="btn btn-primary d-flex align-items-center">
+                                                                                    <i class="bi bi-filter me-2"></i> Filter
+                                                                        </button>
+                                                                        <a href="<?= $_SERVER['PHP_SELF'] ?>" class="btn btn-secondary d-flex align-items-center">
+                                                                                    <i class="bi bi-arrow-clockwise me-2"></i> Reset
+                                                                        </a>
+                                                                        <button type="button" class="btn btn-info print-btn d-flex align-items-center" onclick="printReport()">
+                                                                                    <i class="bi bi-printer me-2"></i> Print
+                                                                        </button>
                                                             </div>
                                                 </div>
                                     </form>
                                     <div class="table-responsive">
-                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                            <thead>
+                                                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                            <thead class="bg-light">
                                                                         <tr>
-                                                                                    <th width="5%">NO</th>
+                                                                                    <th class="text-center">NO</th>
                                                                                     <th>TANGGAL</th>
                                                                                     <th>NAMA PRODUK</th>
-                                                                                    <th>STOK AWAL</th>
-                                                                                    <th>STOK AKHIR</th>
-                                                                                    <th>PENJUALAN</th>
-                                                                                    <th>BS</th>
+                                                                                    <th class="text-end">STOK AWAL</th>
+                                                                                    <th class="text-end">STOK AKHIR</th>
+                                                                                    <th class="text-end">PENJUALAN</th>
+                                                                                    <th class="text-end">BS</th>
                                                                         </tr>
                                                             </thead>
                                                             <tbody>
@@ -91,18 +92,18 @@ while ($row = $result->fetch_assoc()) {
                                                                         if (!empty($data_laporan)):
                                                                                     foreach ($data_laporan as $row): ?>
                                                                                                 <tr>
-                                                                                                            <td><?= $no++; ?></td>
+                                                                                                            <td class="text-center"><?= $no++; ?></td>
                                                                                                             <td><?= htmlspecialchars(date('d-m-Y', strtotime($row['tanggal']))); ?></td>
                                                                                                             <td><?= htmlspecialchars($row['nama_produk']); ?></td>
-                                                                                                            <td><?= htmlspecialchars($row['stok_awal']); ?></td>
-                                                                                                            <td><?= htmlspecialchars($row['stok_akhir']); ?></td>
-                                                                                                            <td><?= htmlspecialchars($row['penjualan']); ?></td>
-                                                                                                            <td><?= htmlspecialchars($row['bs']); ?></td>
+                                                                                                            <td class="text-end"><?= htmlspecialchars($row['stok_awal']); ?></td>
+                                                                                                            <td class="text-end"><?= htmlspecialchars($row['stok_akhir']); ?></td>
+                                                                                                            <td class="text-end"><?= htmlspecialchars($row['penjualan']); ?></td>
+                                                                                                            <td class="text-end"><?= htmlspecialchars($row['bs']); ?></td>
                                                                                                 </tr>
                                                                                     <?php endforeach;
                                                                         else: ?>
                                                                                     <tr>
-                                                                                                <td colspan="7" class="text-center">Tidak ada data untuk ditampilkan.</td>
+                                                                                                <td colspan="7" class="text-center text-muted py-4">Tidak ada data untuk ditampilkan.</td>
                                                                                     </tr>
                                                                         <?php endif; ?>
                                                             </tbody>
@@ -115,8 +116,4 @@ while ($row = $result->fetch_assoc()) {
 <?php
 require_once __DIR__ . '/../../../includes/footer.php';
 ?>
-
-<script>
-
-</script>
 <?php ob_end_flush(); ?>
