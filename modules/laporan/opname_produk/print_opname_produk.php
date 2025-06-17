@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../../../config/database.php';
 
-// Ambil tanggal awal dan akhir dari parameter GET
 $start_date = isset($_GET['start_date']) ? $_GET['start_date'] : '';
 $end_date = isset($_GET['end_date']) ? $_GET['end_date'] : '';
 
@@ -39,7 +38,6 @@ while ($row = $result->fetch_assoc()) {
             $data_laporan[] = $row;
 }
 
-// Informasi periode laporan untuk header print
 $periode = "Semua Tanggal";
 if (!empty($start_date) && !empty($end_date)) {
             $periode = "Dari " . formatTanggal($start_date) . " Hingga " . formatTanggal($end_date);
@@ -222,8 +220,6 @@ if (!empty($start_date) && !empty($end_date)) {
 <body>
             <div class="container">
                         <div class="header">
-                                    <!-- Tambahkan logo perusahaan jika ada -->
-                                    <!-- <img src="path/to/logo.png" alt="Logo Perusahaan" class="logo"> -->
                                     <h1>LAPORAN OPNAME PRODUK</h1>
                                     <div class="periode"><?= htmlspecialchars($periode) ?></div>
                         </div>
