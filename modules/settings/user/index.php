@@ -44,7 +44,7 @@ $users = $conn->query($sql);
                                                                                                 <td><?php echo htmlspecialchars($user_row['username']); ?></td>
                                                                                                 <td><?php echo htmlspecialchars($user_row['email']); ?></td>
                                                                                                 <td><?php echo htmlspecialchars($user_row['role_title']); ?></td>
-                                                                                                <td class="text-center">
+                                                                                                <td class="d-flex justify-content-center gap-2">
                                                                                                             <a href="edit.php?id=<?php echo $user_row['id']; ?>" class="btn btn-sm btn-outline-warning me-1" title="Edit">
                                                                                                                         <i class="bi bi-pencil"></i>
                                                                                                             </a>

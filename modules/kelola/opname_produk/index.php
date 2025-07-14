@@ -50,7 +50,7 @@ $active_menu = 'opname_produk';
                                                                                                 <td class="text-center"><?= htmlspecialchars($row['stok_akhir']); ?></td>
                                                                                                 <td class="text-center"><?= htmlspecialchars($row['penjualan']); ?></td>
                                                                                                 <td class="text-center"><?= htmlspecialchars($row['bs']); ?></td>
-                                                                                                <td class="text-center">
+                                                                                                <td class="d-flex justify-content-center gap-2">
                                                                                                             <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-sm btn-outline-warning me-1" title="Edit">
                                                                                                                         <i class="bi bi-pencil"></i>
                                                                                                             </a>

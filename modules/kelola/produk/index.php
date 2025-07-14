@@ -47,7 +47,7 @@ $active_menu = 'produk';
                                                                                                 <td class="text-center"><?= htmlspecialchars($row['kode_produk']); ?></td>
                                                                                                 <td class="text-center"><?= htmlspecialchars($row['jumlah_produk']); ?></td>
                                                                                                 <td class="text-start"><?= htmlspecialchars($row['keterangan']); ?></td>
-                                                                                                <td class="text-center">
+                                                                                                <td class="d-flex justify-content-center gap-2">
                                                                                                             <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-sm btn-outline-warning me-1" title="Edit">
                                                                                                                         <i class="bi bi-pencil"></i>
                                                                                                             </a>
